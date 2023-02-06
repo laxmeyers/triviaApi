@@ -22,7 +22,7 @@ export class Question {
         <div class="col-md-12 bg-light rounded">
             <h1>${this.question}</h1>
         </div>
-        <div class="col-md-6 bg-light">${this.correct}</div>
+        <div class="col-md-6 bg-light"><h4>${this.correct}</h4></div>
         ${template}
         `
     }

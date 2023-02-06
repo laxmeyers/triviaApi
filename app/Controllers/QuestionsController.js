@@ -1,8 +1,14 @@
 import { appState } from "../AppState.js";
-import { setHTML } from "../Utils/Writer.js";
+import { Question } from "../Models/Question.js";
+import { questionsService } from "../Services/QuestionsService.js";
+import { Pop } from "../Utils/Pop.js";
+import { setHTML, setText } from "../Utils/Writer.js";
 
 function _drawQuestion() {
-    setHTML('')
+    let template = ''
+    appState.questions.forEach(q => template += q.QuestionCard)
+    // console.log(appState.questions[1].QuestionCard);
+    setHTML('question', appState.questions[1].QuestionCard)
 }
 
 export class QuestionsController {
@@ -11,5 +17,11 @@ export class QuestionsController {
         appState.on('questions', _drawQuestion)
     }
 
-    async getQuestions(){}
+    async getQuestions() {
+        try {
+            await questionsService.getQuestions()
+        } catch (error) {
+            Pop.error(error)
+        }
+    }
  }
