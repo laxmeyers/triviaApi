@@ -26,4 +26,10 @@ export class Question {
         ${template}
         `
     }
+
+    get answerCard() {
+        return `
+        <div class="col-md-12 bg-success text-center my-3"><h4>${this.correct}</h4></div>
+        `
+    }
 }

@@ -8,12 +8,20 @@ function _drawQuestion() {
     setHTML('question', appState.questions[appState.index].QuestionCard)
 }
 
+function _drawAnswer() {
+    setHTML('answer', appState.questions[appState.index].answerCard)
+}
+function _drawDefault() {
+    setHTML('answer', '')
+}
+
 export class QuestionsController {
     constructor(){
         // console.log('hello trivia');
         this.getQuestions()
         appState.on('questions', _drawQuestion)
         appState.on('index', _drawQuestion)
+        appState.on('index', _drawDefault)
     }
 
     async getQuestions() {
@@ -32,5 +40,11 @@ export class QuestionsController {
         }
     }
 
-    
+    showAnswer() {
+        try {
+            _drawAnswer()
+        } catch (error) {
+            Pop.error(error)
+        }
+    }
  }

@@ -5,8 +5,7 @@ import { trivia_api } from "./AxiosService.js"
 
 class QuestionsService {
     nextQuestion() {
-        if (appState.index < appState.questions.length) {
-            
+        if (appState.index < (appState.questions.length - 1)) {
             appState.index++
         } else {
             throw new Error('You answered all the questions!')
