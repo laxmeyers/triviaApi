@@ -9,6 +9,8 @@ class AppState extends EventEmitter {
   
   /** @type {import('./Models/Question').Question[]} */
   questions = []
+
+  index = 0
 }
 
 export const appState = new Proxy(new AppState(), {

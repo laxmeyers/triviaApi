@@ -14,15 +14,15 @@ export class Question {
     get QuestionCard() {
         let template = ''
         this.wrong.forEach(w => {
-            template += `<div class='col-md-6 bg-light'>
+            template += `<div class='col-md-6 bg-light text-center my-3'>
                 <h4>${w}</h4>
             </div>`
         });
         return /*html*/ `
-        <div class="col-md-12 bg-light rounded">
+        <div class="col-md-12 bg-light rounded text-center my-3">
             <h1>${this.question}</h1>
         </div>
-        <div class="col-md-6 bg-light"><h4>${this.correct}</h4></div>
+        <div class="col-md-6 bg-light text-center my-3"><h4>${this.correct}</h4></div>
         ${template}
         `
     }

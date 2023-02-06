@@ -4,6 +4,15 @@ import { trivia_api } from "./AxiosService.js"
 
 
 class QuestionsService {
+    nextQuestion() {
+        if (appState.index < appState.questions.length) {
+            
+            appState.index++
+        } else {
+            throw new Error('You answered all the questions!')
+        }
+    }
+
     async getQuestions() {
         const res = await trivia_api.get('api.php?amount=10')
         // console.log(res.data.map(c => new Question(c)));
